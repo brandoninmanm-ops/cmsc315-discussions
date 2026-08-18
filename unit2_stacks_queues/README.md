@@ -34,3 +34,20 @@ Your reflection should be approximately 150–200 words and address the followin
 1. What concepts or skills did you learn while completing this assignment?
 2. What challenges did you encounter, and how did you overcome them?
 3. Explain the differences between stacks and queues as this relates to real-world applications.
+
+## My Reflection
+
+While working on this assignment, I learned how to build stacks and queues
+from scratch using Python lists and deques. I started out by carefully reading
+through the template and commenting on what every section did before I wrote my
+own code, which made the rest of the assignment much easier to follow.
+
+
+One big challenge I ran into was figuring out what happens if someone tries to pop
+an item from an empty stack or queue, which usually causes a crash. I fixed this by
+using an is_empty check inside my methods, so it safely prints a warning message instead
+of crashing.
+
+The main difference between the two really comes down to order. Stacks use LIFO for things
+like an undo button where the newest action matters first. Queues use FIFO for things like
+lines or print jobs where order of arrival matters.
