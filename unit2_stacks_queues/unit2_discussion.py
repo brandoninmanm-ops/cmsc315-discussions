@@ -34,7 +34,7 @@ class Stack:
         # What should happen if the stack is empty?
         # Check if the stack is empty before attempting a removal to prevent IndexError.
         if self.is_empty():
-            print("Error: Cannot pop from an empty stack.")
+            print("Error: Cannot pop empty stack.")
             return None
         # Removes and returns the top item from the list.
         return self.items.pop()
@@ -44,7 +44,7 @@ class Stack:
         # Add a comment explaining what peek does.
         # Check if the stack is empty before attempting to view the top element.
         if self.is_empty():
-            print("Error: Cannot peek into an empty stack.")
+            print("Error: Cannot peek empty stack.")
             return None
         # Peek returns the value at the top of the stack without altering or removing it from the stack.
         return self.items[-1]
@@ -75,7 +75,7 @@ class Queue:
         # Explain or improve empty-queue handling.
         # Check if the queue is empty to prevent removal errors.
         if self.is_empty():
-            print("Error: Cannot dequeue from an empty queue.")
+            print("Error: Cannot dequeue an empty queue.")
             return None
         # Removes and returns the element from the front of the deque.
         return self.items.popleft()
@@ -85,19 +85,19 @@ class Queue:
         # Add a comment explaining what front returns.
         # Check if the queue is empty before trying to inspect the front item.
         if self.is_empty():
-            print("Error: Cannot view front of an empty queue.")
+            print("Error: Cannot view the front of an empty queue.")
             return None
         # Front returns the value at the very front of the queue without removing it from the structure.
         return self.items[0]
 
     def is_empty(self):
         # TODO (Student): Return True if the queue has no values.
-        # Returns True if the length of the deque is zero, otherwise False.
+        # Returns True if the length of the deque is zero, else False.
         return len(self.items) == 0
 
 
 def main():
-    print("=== UNIT 2: STACKS AND QUEUES ===")
+    print(" UNIT 2: STACKS AND QUEUES ")
 
     # ===============================
     # TODO (Student): STACK DEMO
@@ -114,25 +114,25 @@ def main():
     # 7. Create a stack with only one item, remove it,
     #    and verify the stack is empty afterward.
 
-    print("\n=== STACK DEMO ===")
+    print("\n STACK DEMO ")
 
     # Instantiates a new Stack object for demonstration.
     my_stack = Stack()
 
     # Pushes four sequential integer values onto the stack.
-    print("Pushing values onto the stack: 10, 20, 30, 40")
-    my_stack.push(10)
-    my_stack.push(20)
-    my_stack.push(30)
-    my_stack.push(40)
+    print("Pushing values to the stack: 22, 3, 89, 9")
+    my_stack.push(22)
+    my_stack.push(3)
+    my_stack.push(89)
+    my_stack.push(9)
 
     # Displays the current top element using the peek method without removing it.
-    print(f"Top of stack (Peek): {my_stack.peek()}")
+    print(f"Peek: {my_stack.peek()}")
 
     # Loops through the stack until empty, popping and printing elements to prove LIFO behavior.
-    print("\nDemonstrating LIFO behavior by popping all elements:")
+    print("\nDemonstrating LIFO by popping all items:")
     while not my_stack.is_empty():
-        print(f"Popped: {my_stack.pop()}")
+        print(f"Popped item: {my_stack.pop()}")
 
     # Tests the empty-stack error handling by calling pop() on an already empty stack.
     print("\nEdge Case: Testing pop() on an empty stack:")
@@ -143,12 +143,12 @@ def main():
     my_stack.peek()
 
     # Tests a single-item stack lifecycle.
-    print("\nEdge Case: Verifying single-item stack becomes empty after removal:")
+    print("\nEdge Case: Verifying single-item stack is empty after pop:")
     single_stack = Stack()
-    single_stack.push(100)
-    print(f"Pushed 100. Is stack empty? {single_stack.is_empty()}")
+    single_stack.push(22)
+    print(f"Pushed 22. Is stack empty? {single_stack.is_empty()}")
     print(f"Popped item: {single_stack.pop()}")
-    print(f"Is stack empty after removal? {single_stack.is_empty()}")
+    print(f"Is stack empty after pop? {single_stack.is_empty()}")
 
     # ===============================
     # TODO (Student): QUEUE DEMO
@@ -165,23 +165,23 @@ def main():
     # 7. Create a queue with only one item, remove it,
     #    and verify the queue is empty afterward.
 
-    print("\n=== QUEUE DEMO ===")
+    print("\n QUEUE DEMO ")
 
     # Instantiate a new Queue object for demonstration.
     my_queue = Queue()
 
-    # Enqueue four string values representing customers in line.
-    print("Enqueuing values into the queue: 'Alice', 'Bob', 'Charlie', 'Diana'")
-    my_queue.enqueue("Alice")
-    my_queue.enqueue("Bob")
-    my_queue.enqueue("Charlie")
-    my_queue.enqueue("Diana")
+    # Enqueue four values representing customers in line.
+    print("Enqueuing values: 'Melanie', 'Puddles', 'Oscar', 'Jesus'")
+    my_queue.enqueue("Melanie")
+    my_queue.enqueue("Puddles")
+    my_queue.enqueue("Oscar")
+    my_queue.enqueue("Jesus")
 
     # Displays the current front element using the front method without removing it.
     print(f"Front of queue: {my_queue.front()}")
 
     # Loops through the queue until empty, dequeuing elements to prove FIFO behavior.
-    print("\nDemonstrating FIFO behavior by dequeuing all elements:")
+    print("\nDemonstrating FIFO, dequeue() for all elements:")
     while not my_queue.is_empty():
         print(f"Dequeued: {my_queue.dequeue()}")
 
@@ -194,12 +194,12 @@ def main():
     my_queue.front()
 
     # Tests a single-item queue lifecycle.
-    print("\nEdge Case: Verifying single-item queue becomes empty after removal:")
+    print("\nEdge Case: Verifying single-item queue becomes empty:")
     single_queue = Queue()
-    single_queue.enqueue("Solo-Item")
-    print(f"Enqueued 'Solo-Item'. Is queue empty? {single_queue.is_empty()}")
+    single_queue.enqueue("Single-Item")
+    print(f"Enqueued 'Single-Item'. Is queue empty? {single_queue.is_empty()}")
     print(f"Dequeued item: {single_queue.dequeue()}")
-    print(f"Is queue empty after removal? {single_queue.is_empty()}")
+    print(f"Is the queue empty after removal? {single_queue.is_empty()}")
 
 
 if __name__ == "__main__":
