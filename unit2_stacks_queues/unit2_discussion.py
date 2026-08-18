@@ -116,20 +116,20 @@ def main():
 
     print("\n STACK DEMO ")
 
-    # Instantiates a new Stack object for demonstration.
+    # Instantiates a new Stack object.
     my_stack = Stack()
 
-    # Pushes four sequential integer values onto the stack.
+    # Pushes four integer values onto the stack.
     print("Pushing values to the stack: 22, 3, 89, 9")
     my_stack.push(22)
     my_stack.push(3)
     my_stack.push(89)
     my_stack.push(9)
 
-    # Displays the current top element using the peek method without removing it.
+    # Displays the current top item using the peek method without removing.
     print(f"Peek: {my_stack.peek()}")
 
-    # Loops through the stack until empty, popping and printing elements to prove LIFO behavior.
+    # Loops through the stack until empty, popping and printing elements, LIFO.
     print("\nDemonstrating LIFO by popping all items:")
     while not my_stack.is_empty():
         print(f"Popped item: {my_stack.pop()}")
