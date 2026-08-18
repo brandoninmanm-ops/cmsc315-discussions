@@ -59,13 +59,13 @@ class Queue:
     def __init__(self):
         # TODO (Student): Create the internal data structure for the queue.
         # Hint: collections.deque is useful for efficient queue operations.
-        # Initialize an empty deque object for optimized O(1) queue operations.
+        # Initialize an empty deque object.
         self.items = deque()
 
     def enqueue(self, value):
         # TODO (Student): Add value to the back of the queue.
         # Add a short comment explaining why this operation supports FIFO behavior.
-        # Add the new value to the back/right side of the deque.
+        # Add the new value to the back.
         self.items.append(value)
         # This supports FIFO behavior because incoming items join the back of the line,
         # waiting behind all previously added elements.
@@ -77,7 +77,7 @@ class Queue:
         if self.is_empty():
             print("Error: Cannot dequeue an empty queue.")
             return None
-        # Removes and returns the element from the front of the deque.
+        # Removes and returns the element from the front.
         return self.items.popleft()
 
     def front(self):
@@ -87,17 +87,17 @@ class Queue:
         if self.is_empty():
             print("Error: Cannot view the front of an empty queue.")
             return None
-        # Front returns the value at the very front of the queue without removing it from the structure.
+        # Returns the value at the very front without removing it.
         return self.items[0]
 
     def is_empty(self):
         # TODO (Student): Return True if the queue has no values.
-        # Returns True if the length of the deque is zero, else False.
+        # Returns True if deque is zero, else False.
         return len(self.items) == 0
 
 
 def main():
-    print(" UNIT 2: STACKS AND QUEUES ")
+    print("UNIT 2: STACKS AND QUEUES")
 
     # ===============================
     # TODO (Student): STACK DEMO
