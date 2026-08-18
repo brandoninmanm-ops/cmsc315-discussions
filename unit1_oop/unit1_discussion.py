@@ -82,7 +82,7 @@ class ChildClass(ParentClass):
 # - Display information about the class namespace.
 
 def demonstrate_namespaces():
-    print("\n=== Namespace Demonstration ===")
+    print("\nNamespace Demonstration ")
 
     # Create two child class objects with distinct initial values
     obj1 = ChildClass("Python OOP", 12, "Alice", ["code", "classes"])
@@ -114,7 +114,7 @@ def demonstrate_namespaces():
 # - Use comments to explain the difference between shallow and deep copying.
 
 def demonstrate_copying():
-    print("\n=== Copy Demonstration ===")
+    print("\nCopy Demonstration")
 
     # Create an object with a nested mutable list structure inside 'tags'
     original_obj = ChildClass("Original Topic", 15, "Charlie", ["draft", ["reference1", "reference2"]])
@@ -125,7 +125,7 @@ def demonstrate_copying():
     # Create a deep copy using the deepcopy() function
     deep_copied_obj = deepcopy(original_obj)
 
-    print("--- BEFORE MODIFYING NESTED DATA ---")
+    print("BEFORE MODIFYING NESTED DATA")
     print(f"Original Tags:       {original_obj.tags}")
     print(f"Shallow Copy Tags:   {shallow_copied_obj.tags}")
     print(f"Deep Copy Tags:      {deep_copied_obj.tags}")
@@ -133,7 +133,7 @@ def demonstrate_copying():
     # Mutate the inner nested list within the original object
     original_obj.tags[1].append("reference3")
 
-    print("\n--- AFTER MODIFYING ORIGINAL'S NESTED DATA ---")
+    print("\nAFTER MODIFYING ORIGINAL'S NESTED DATA")
     print(f"Original Tags:       {original_obj.tags}")
     # Explanation: Shallow copy replicates the outer container but references the same inner mutable objects
     print(f"Shallow Copy Tags:   {shallow_copied_obj.tags}  (Affected because inner list is shared)")
@@ -151,16 +151,16 @@ def demonstrate_copying():
 # - Call your copy demonstration function.
 
 def main():
-    print("=== Unit 1 OOP Assignment ===")
+    print("Unit 1 OOP Assignment")
 
     # Instantiate and test the parent class object
     parent_obj = ParentClass("General Forum", 50)
-    print("\n[Parent Object Test]")
+    print("\nParent Object Test")
     print(parent_obj.display_info())
 
     # Instantiate and test the child class object, demonstrating inheritance and method overriding
     child_obj = ChildClass("Weekly Discussion", 20, "Dana", ["introduction", ["post1"]])
-    print("\n[Child Object Test]")
+    print("\nChild Object Test")
     print(child_obj.display_info())
     print(child_obj.new_method())
 
