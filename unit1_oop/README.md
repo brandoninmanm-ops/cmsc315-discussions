@@ -17,41 +17,36 @@ This assignment explores object-oriented programming (OOP) concepts in Python, i
 Complete all TODO sections in the source code:
 
 1. Create a parent class.
-   Implementation: Define a foundational base class representing a generic discussion forum entity
-   Include a class-level variable
-   Implement an constructor taking at least two instance attributes
-   Define an instance method to return a formatted string displaying the parent object's current state
+   I defined the base ParentClass featuring a shared class variable (species_type) 
+   and a constructor (__init__) to set up instance attributes. I included display_info(self), 
+   which was written to return a formatted string displaying the parent object's current state and attributes.
 
 2. Create a child class using inheritance.
-   Implementation: Build a specialized subclass inheriting from ParentClass to demonstrate inheritance, method overriding, and 	functionality extension.
-   Inherit using class ChildClass/ParentClass
-   Add a new class-level variable
-   Expand the constructor while introducing new instance variables and tags, including a nested mutable list for copying tests
-   Create a student-defined extension method to provide unique behavior
-   Override the parent's method to integrate both parent and child attributes
+   I built a ChildClass that inherited from the parent using super().__init__(), adding new class and instance 
+   variables (including a nested mutable list). I overrode the parent's display_info(self) method to integrate 
+   both parent and child attributes, and I added a custom extension method (new_method(self)) to return a 
+   customized string tracking the thread author.
 
 3. Demonstrate class and instance namespaces.
-   Implementation: Showcase Python's scope lookup hierarchy and dynamic attribute handling using object dictionaries.
-   Instantiate at least two unique ChildClass objects
-   Access a class variable via both the class reference and an instance reference
-   Dynamically assign a new attribute to a single instance post-instantiation
-   Output and inspect mapping namespaces using built-in attributes for both individual objects and the parent/child classes
+   I instantiated child objects, accessed class variables via both the class and instances, dynamically added a
+   new attribute to a single object, and inspected scope boundaries. I added the method demonstrate_namespaces(), 
+   which outputted internal mapping namespaces using built-in __dict__ attributes for both individual objects and 
+   the classes.
 
 4. Demonstrate shallow and deep copying.
-   Implementation: Contrast memory allocation behavior between shallow and deep copies when handling nested mutable objects
-   Initialize an object containing a nested mutable data structure
-   Generate a shallow copy using copy and a deep copy using deepcopy
-   Mutate a nested element within the original object's container
-   Compare outcomes to demonstrate how shallow copies preserve reference pointers to inner mutable items while deep copies 	recursively clone all underlying structures independently.
+   I initialized an object with nested mutable data, created copies, mutated the original nested list, and 
+   observed how memory allocations differed. I added the method demonstrate_copying(), which used the copy()
+   function for shallow copies and the deepcopy() function for deep copies.
 
 5. Create and test objects in `main()`.
-   Implementation: Establish the primary execution entry point to test all classes, inheritance hierarchies, and demonstration 	modules
-   Instantiate and test a standalone ParentClass object, verifying its constructor and display method
-   Instantiate and test a ChildClass object, verifying inherited methods, overridden display output, and the student-created 	extension method
-   Invoke demonstrate sequentially to execute the full evaluation suite.
+   I set up the primary execution entry point to test all classes, inheritance hierarchies, and evaluation modules.
+   I structured main() to instantiate parent and child objects, call their respective display and extension methods, 
+   and sequentially invoke demonstrate_namespaces() and demonstrate_copying().
 
 6. Add a student-created extension.
-   Implementation: Built a custom student-created extension method inside the child class that introduces targeted thread contributor 	tracking functionality beyond the base parent attributes.
+   I implemented a unique student extension method inside the child class to enhance functionality beyond the base
+   parent attributes. I  utilized new_method(self), which returned a targeted thread contributor string using the 
+   child's unique author_name instance variable.
 
 
 ## Discussion Board Reflection
@@ -61,7 +56,7 @@ After completing the programming assignment, add this reflection to your initial
 Your reflection should be approximately 150–200 words and address the following questions:
 
 1. What concepts or skills did you learn while completing this assignment?
-   This week I really got a handle on how classes work in Python, especially setting up parent and child classes
+   This week I really got a handle on how classes work, especially setting up parent and child classes
    with inheritance. I also learned how namespaces work using __dict__ to see what's actually stored inside an object
    versus the class. Plus, doing the shallow vs. deep copy exercise really cleared up how Python handles memory when
    you have lists nested inside other objects.
