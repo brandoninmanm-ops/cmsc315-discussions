@@ -37,8 +37,6 @@ Your reflection should be approximately 150–200 words and address the followin
 
 ## Implementation
 
-Completed Implementation
-
 Stack (LIFO)
 
 I implemented the Stack class using a standard Python list (self.items) as 
@@ -91,7 +89,6 @@ While working on this assignment, I learned how to build stacks and queues
 from scratch using Python lists and deques. I started out by carefully reading
 through the template and commenting on what every section did before I wrote my
 own code, which made the rest of the assignment much easier to follow.
-
 
 One big challenge I ran into was figuring out what happens if someone tries to pop
 an item from an empty stack or queue, which usually causes a crash. I fixed this by
