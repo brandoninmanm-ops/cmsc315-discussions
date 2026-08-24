@@ -25,12 +25,12 @@ List Operations (Insert, Delete, Search)
 
 I implemented the list operations using a standard Python list (signal_buffer) as the underlying structure
 to manage incoming deep-space telemetry packets from a remote probe. Being an AEGIS Tech while in the Navy we
-delt with Ballistic telemetry data daily, so i thought it would fun to add that to my code.
+delt with Ballistic telemetry data daily, so I thought it would fun to add that to my code.
 
 insert_at(lst, index, value) used Python's built-in .insert() method to place a new telemetry packet at the
 specified position. The code notes explained that inserting at the beginning or middle forced Python to shift
-all subsequent elements one spot to the right in memory, resulting in linear $O(n)$ performance, whereas inserting
-at the very end ran much faster ($O(1)$) because no other elements required shifting.
+all subsequent elements one spot to the right in memory, resulting in linear performance, whereas inserting
+at the very end ran much faster because no other elements required shifting.
 
 delete_at(lst, index) first validated that the target index fell within valid list boundaries using a safe boundary check
 (0 <= index < len(lst)) to prevent an IndexError crash. If valid, it removed and returned the packet via .pop(index); if
@@ -40,11 +40,12 @@ search_value(lst, value) looped through the signal buffer item by item using enu
 It returned the index immediately upon finding a matching packet or -1 if the loop finished without a match, illustrating
 a linear search where Python scanned sequentially from left to right without prior knowledge of the item's location.
 
-I modeled the test demo around a telemetry buffer holding initial packets ("PKT-A10", "PKT-B22", "PKT-C33"). I demonstrated
-insertions at the beginning (simulating a high-priority emergency packet), middle, and end, followed by sequential deletions
-from all three positions and searches for both existing and missing packet codes. Edge cases were tested by attempting a deletion
-with an invalid out-of-bounds index (99), and by initializing a brand-new empty telemetry buffer to verify how insertions and
-out-of-bounds deletions behaved on an empty structure.
+I modeled my code around a telemetry buffer holding initial packets ("PKT-A10", "PKT-B10", "PKT-C10"). I placed
+insertions at the beginning (PKT-H10-Front), middle (PKT-D10-MID), and end (PKT-Z499-Bck), followed by deletions
+from all three positions (PKT-H10-FRONT, PKT-B10, PKT-Z499-BCK) and searches for both existing (PKT-A10) and missing 
+packet (PKT-F10) codes. Edge cases were tested by attempting a deletion with an invalid out-of-bounds index (500), 
+emptying current list (signal_buffer), empty list insertion, and by initializing a brand-new empty telemetry buffer to 
+verify how insertions and out-of-bounds deletions behaved normally on an empty structure.
 
 ## Discussion Board Reflection
 

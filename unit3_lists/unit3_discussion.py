@@ -25,8 +25,8 @@ def insert_at(lst, index, value):
     # Calls the built-in insert method to place the new telemetry packet at the specified index
     lst.insert(index, value)
     # Inserting at the beginning or middle forces Python to shift all subsequent packets
-    # one position to the right in memory, resulting in linear performance (O(n)).
-    # Inserting at the very end is much faster (O(1)) because no other elements require shifting.
+    # one position to the right in memory, resulting in better linear performance.
+    # Inserting at the very end is much faster because no other elements require shifting.
 
 
 def delete_at(lst, index):
@@ -45,9 +45,9 @@ def delete_at(lst, index):
         # Pops out the telemetry packet at that specific index so it can be returned as processed
         removed_item = lst.pop(index)
         # Validating indices first is crucial because it stops invalid lookups from crashing
-        # the program and handles unexpected edge cases gracefully.
+        # the program and handles unexpected edge cases.
         return removed_item
-    # Returns None if the index is out of bounds to maintain safe and predictable behavior
+    # Returns None if the index is out of bounds to maintain program error handling
     return None
 
 
@@ -92,21 +92,21 @@ def main():
 
     print("\nINSERTION TESTS")
     # Initializes a sample satellite telemetry buffer list with distinct hex packet strings
-    signal_buffer = ["PKT-A10", "PKT-B22", "PKT-C33"]
+    signal_buffer = ["PKT-A10", "PKT-B10", "PKT-C10"]
     print(f"Original signal buffer: {signal_buffer}")
 
     # Inserts a high-priority emergency packet at index 0 (the front of the buffer)
     # Triggers a shift of all existing packet elements to the right, creating extra overhead.
-    insert_at(signal_buffer, 0, "PKT-ERR-00")
-    print(f"After inserting at the beginning: {signal_buffer}")
+    insert_at(signal_buffer, 0, "PKT-H10-Front")
+    print(f"After inserting at the Front: {signal_buffer}")
 
     # Inserts a diagnostic packet into the middle position of the buffer (index 2)
-    insert_at(signal_buffer, 2, "PKT-MID-55")
-    print(f"After inserting in the middle: {signal_buffer}")
+    insert_at(signal_buffer, 2, "PKT-D10-MID")
+    print(f"After inserting in the Middle: {signal_buffer}")
 
     # Inserts a routine telemetry packet at the very end of the buffer using the current length as the index
-    insert_at(signal_buffer, len(signal_buffer), "PKT-END-99")
-    print(f"After inserting at the end: {signal_buffer}")
+    insert_at(signal_buffer, len(signal_buffer), "PKT-Z499-Bck")
+    print(f"After inserting at the Back: {signal_buffer}")
 
     # ===============================
     # TODO (Student): DELETION TESTS
@@ -147,12 +147,12 @@ def main():
 
     print("\nSEARCH TESTS")
     # Searches for an active packet that is confirmed to be in the buffer list
-    target_found = "PKT-B22"
+    target_found = "PKT-A10"
     found_index = search_value(signal_buffer, target_found)
     print(f"Searching for existing packet '{target_found}' found at index: {found_index}")
 
     # Searches for a packet code that is completely absent from the buffer
-    target_missing = "PKT-XYZ-99"
+    target_missing = "PKT-F10"
     missing_index = search_value(signal_buffer, target_missing)
     print(f"Searching for missing packet '{target_missing}' returned: {missing_index}")
 
@@ -170,21 +170,25 @@ def main():
     # - Use comments to explain each edge case.
 
     print("\nEDGE CASES")
-    # Edge Case 1: Tries to delete a packet using an out-of-bounds invalid index
-    bad_index_result = delete_at(signal_buffer, 99)
-    print(f"Edge Case 1 - Deleting with invalid index 99 returned: {bad_index_result} (List remains: {signal_buffer})")
+    # Delete a packet using an invalid index (not on list)
+    bad_index_result = delete_at(signal_buffer, 500)
+    print(f"Edge Case 1 - Deleting with invalid index of 500 returned: {bad_index_result} (List remains: {signal_buffer})")
 
-    # Edge Case 2: Tests buffer operations on a brand new empty telemetry array
-    empty_buffer = []
-    print(f"Edge Case 2 - Empty buffer initialized: {empty_buffer}")
+    # Edge Case 2: Clears the main signal buffer completely and tests deleting from an empty list
+    signal_buffer.clear()
+    print(f"Edge Case 2: Main signal buffer cleared: {signal_buffer}")
 
-    # Inserts a packet into the empty buffer starting at index 0
-    insert_at(empty_buffer, 0, "PKT-INIT")
-    print(f"After inserting into empty buffer: {empty_buffer}")
+    # Tries to delete from the now-empty main list (should return None safely)
+    empty_delete = delete_at(signal_buffer, 0)
+    print(f"Trying to delete from the empty signal buffer returned: {empty_delete}")
 
-    # Tries to delete using a negative out-of-bounds index
-    negative_delete = delete_at(empty_buffer, -5)
-    print(f"Trying to delete using a negative index returned: {negative_delete}")
+    # Edge case 3:Delete from an empty list
+    delete_empty = delete_at(signal_buffer, 0)
+    print(f"Edge Case 3: Delete from an empty buffer returned: {delete_empty}")
+
+    # Inserts a packet into the empty list at index 0
+    insert_at(signal_buffer, 0, "PKT-Q10-New")
+    print(f"Edge Case 4: Inserting into empty buffer: {signal_buffer}")
 
 if __name__ == "__main__":
     main()
