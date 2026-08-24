@@ -24,8 +24,8 @@ def insert_at(lst, index, value):
     """
     # Calls the built-in insert method to place the new telemetry packet at the specified index
     lst.insert(index, value)
-    # Inserting at the beginning or middle forces Python to shift all subsequent packets
-    # one position to the right in memory, resulting in better linear performance.
+    # Inserting at the beginning or middle forces Python to shift all packets one position to the
+    # right in memory, resulting in better linear performance.
     # Inserting at the very end is much faster because no other elements require shifting.
 
 
@@ -44,10 +44,10 @@ def delete_at(lst, index):
     if 0 <= index < len(lst):
         # Pops out the telemetry packet at that specific index so it can be returned as processed
         removed_item = lst.pop(index)
-        # Validating indices first is crucial because it stops invalid lookups from crashing
-        # the program and handles unexpected edge cases.
         return removed_item
     # Returns None if the index is out of bounds to maintain program error handling
+    # Validating indices first is crucial because it stops invalid lookups from crashing the program
+    # and handles unexpected edge cases.
     return None
 
 
@@ -67,9 +67,10 @@ def search_value(lst, value):
         if element == value:
             # Returns the index immediately upon finding a matching packet
             return idx
-    # Returns -1 if the loop finishes without finding a match
-    # This is a linear search because Python scans sequentially from left to right,
-    # meaning the position of the packet is unknown ahead of time (O(n) time complexity).
+    # Returns -1 if the loop finishes without finding a match, vice none as to distinguish between
+    # not found and nothing actually being there.
+    # This is a linear search because Python scans sequentially from left to right, meaning the
+    # position of the packet is unknown ahead of time.
     return -1
 
 
