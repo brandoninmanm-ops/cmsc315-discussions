@@ -171,25 +171,21 @@ def main():
     # - Use comments to explain each edge case.
 
     print("\nEDGE CASES")
-    # Delete a packet using an invalid index (not on list)
+    # Edge case 1 Delete a packet using an invalid index (not on list)
     bad_index_result = delete_at(signal_buffer, 500)
-    print(f"Edge Case 1 - Deleting with invalid index of 500 returned: {bad_index_result} (List remains: {signal_buffer})")
+    print(f"Edge Case 1: Deleting with invalid index of 500 returned: {bad_index_result} (List remains: {signal_buffer})")
 
-    # Edge Case 2: Clears the main signal buffer completely and tests deleting from an empty list
+    # Clears the main signal buffer completely for next edge cases
     signal_buffer.clear()
-    print(f"Edge Case 2: Main signal buffer cleared: {signal_buffer}")
+    print(f"Main signal buffer cleared: {signal_buffer}")
 
-    # Tries to delete from the now-empty main list (should return None safely)
-    empty_delete = delete_at(signal_buffer, 0)
-    print(f"Trying to delete from the empty signal buffer returned: {empty_delete}")
-
-    # Edge case 3:Delete from an empty list
+    # Edge case 2 Delete from an empty list
     delete_empty = delete_at(signal_buffer, 0)
-    print(f"Edge Case 3: Delete from an empty buffer returned: {delete_empty}")
+    print(f"Edge Case 2: Delete from an empty buffer returned: {delete_empty}")
 
-    # Inserts a packet into the empty list at index 0
+    # Edge Case 3 Inserts a packet into the empty list at index 0
     insert_at(signal_buffer, 0, "PKT-Q10-New")
-    print(f"Edge Case 4: Inserting into empty buffer: {signal_buffer}")
+    print(f"Edge Case 3: Inserting into empty buffer at index 0: {signal_buffer}")
 
 if __name__ == "__main__":
     main()
