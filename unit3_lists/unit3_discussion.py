@@ -187,5 +187,9 @@ def main():
     insert_at(signal_buffer, 0, "PKT-Q10-New")
     print(f"Edge Case 3: Inserting into empty buffer at index 0: {signal_buffer}")
 
+    # Edge Case 4: Try to delete using a negative out-of-bounds index
+    negative_delete = delete_at(signal_buffer, -5)
+    print(f"Edge Case 4: Deleting with a negative index (-5) returned: {negative_delete}")
+
 if __name__ == "__main__":
     main()
